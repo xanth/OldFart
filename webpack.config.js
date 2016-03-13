@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require("webpack");
 
+require('es6-promise').polyfill();
+
 var definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || false)),
 });
@@ -40,6 +42,9 @@ module.exports = {
               test: /\.css$/,
               loader: "style!css"
             },
+            { test: /\.css$/,
+                loader: "style-loader!css-loader"
+            },
             {
               test: /\.scss$/,
               loaders: ["style", "css", "sass"]
@@ -53,6 +58,9 @@ module.exports = {
               loader: "json"
             }
         ]
+    },
+    sassLoader: {
+        includePaths: [path.resolve(__dirname, "./styles")]
     },
     node: {
       fs: "empty"

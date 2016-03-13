@@ -52,6 +52,6 @@ export class Duration {
 
     get Seconds(){
         this.minutes || this.Minutes;
-        return this.seconds ? this.seconds : this.seconds = this.delta % 60;
+        return this.seconds ? this.seconds : this.seconds = Math.floor(this.delta) % 60;
     }
 }
