@@ -1,0 +1,30 @@
+.aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    .age {
+        font-family: 'Avenir', 'helvetica neue', helvetica, arial, sans-serif;
+        font-size: 30px;
+
+        .years {
+            font-size: 5em;
+        }
+        .days {
+            font-size: 4em;
+        }
+        .hours {
+            font-size: 3em;
+        }
+        .minutes {
+            font-size: 2em;
+        }
+        .seconds {
+            font-size: 1em;
+        }
+    }
+}
