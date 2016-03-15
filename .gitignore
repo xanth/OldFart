@@ -1,3 +1,12 @@
+# Compiled Source
+build
+
+# Chrome Plugin Pack
+*.crx
+*.zip
+
+# Chrome Plugin Cert
+*.pem
 
 # Created by https://www.gitignore.io/api/node
 
@@ -36,6 +45,3 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
-
-# Compiled Source
-build
