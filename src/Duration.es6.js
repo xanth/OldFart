@@ -9,49 +9,24 @@ export class Duration {
         this.Start = Math.max(p, q);
         this.End = Math.min(p, q);
         this.delta = Math.abs(this.End - this.Start) / 1000;
+        this.Calculate();
+
+        Object.freeze(this);
     }
 
-    get Years(){
-        if(!this.years){
-            this.years =  Math.floor(this.delta / Year);
-            this.delta -= this.years * Year;
-        }
+    Calculate(){
+        this.Years =  Math.floor(this.delta / Year);
+        this.delta -= this.Years * Year;
 
-        return this.years;
-    }
+        this.Days =  Math.floor(this.delta / Day);
+        this.delta -= this.Days * Day;
 
-    get Days(){
-        this.years || this.Years;
-        if(!this.days){
-            this.days =  Math.floor(this.delta / Day);
-            this.delta -= this.days * Day;
-        }
+        this.Hours =  Math.floor(this.delta / Hour) % 24;
+        this.delta -= this.Hours * Hour;
 
-        return this.days;
-    }
+        this.Minutes =  Math.floor(this.delta / Minute) % 60;
+        this.delta -= this.Minutes * Minute;
 
-    get Hours(){
-        this.days || this.Days;
-        if(!this.hours){
-            this.hours =  Math.floor(this.delta / Hour) % 24;
-            this.delta -= this.hours * Hour;
-        }
-
-        return this.hours;
-    }
-
-    get Minutes(){
-        this.hours || this.Hours;
-        if(!this.minutes){
-            this.minutes =  Math.floor(this.delta / Minute) % 60;
-            this.delta -= this.minutes * Minute;
-        }
-
-        return this.minutes
-    }
-
-    get Seconds(){
-        this.minutes || this.Minutes;
-        return this.seconds ? this.seconds : this.seconds = Math.floor(this.delta) % 60;
+        this.Seconds = Math.floor(this.delta) % 60;
     }
 }

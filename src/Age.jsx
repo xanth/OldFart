@@ -23,14 +23,12 @@ export default class Age extends React.Component {
     }
 
     render() {
-        return <div className="aligner">
-                <div className="age">
-                    <span className="years">{this.state.Duration.Years}</span>
-                    <span className="days">:{this.state.Duration.Days}</span>
-                    <span className="hours">:{this.state.Duration.Hours}</span>
-                    <span className="minutes">:{this.state.Duration.Minutes}</span>
-                    <span className="seconds">:{this.state.Duration.Seconds}</span>
-                </div>
+        return <div className="age">
+                <span className="years">{this.state.Duration.Years}</span>
+                <span className="days">:{this.state.Duration.Days}</span>
+                <span className="hours">:{this.state.Duration.Hours}</span>
+                <span className="minutes">:{this.state.Duration.Minutes}</span>
+                <span className="seconds">:{this.state.Duration.Seconds}</span>
             </div>;
     }
 }

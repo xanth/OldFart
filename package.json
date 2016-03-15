@@ -28,7 +28,9 @@
     "webpack": "^1.12.14"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "dist": "",
+    "pack": ""
   },
   "author": "Rhys",
   "license": "MIT"

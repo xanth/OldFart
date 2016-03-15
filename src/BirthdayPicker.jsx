@@ -12,9 +12,21 @@ import Age from "./Age.jsx";
 export default class BirthdayPicker extends React.Component {
     constructor(props){
         super(props);
+        this.Date = new Date();
+        this.state = { Birthday: this.props.Birthday }
+    }
+
+    onDateChange(dateText, moment, event){
+        this.setState({ Birthday: moment.toDate() });
     }
 
     render() {
-        return <Age Birthday={moment("1992-03-14 09:30:26").toDate()} />;
+        if(this.state.Birthday){
+            return <Age Birthday={this.state.Birthday} />;
+        }
+        else {
+            return <DatePicker date={this.Date} onChange={(...args) => this.onDateChange.apply(this, args) } />;
+        }
+
     }
 }

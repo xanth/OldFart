@@ -6,6 +6,6 @@ import "../styles/main.scss"
 import BirthdayPicker from "./BirthdayPicker.jsx";
 
 ReactDOM.render(
-  <BirthdayPicker />,
+  <div className="aligner"> <BirthdayPicker /> </div>,
   document.getElementById('content')
 );
