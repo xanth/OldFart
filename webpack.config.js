@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 require('es6-promise').polyfill();
 
@@ -7,13 +9,25 @@ var definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || false)),
 });
 
+var dest =  __dirname + '/build';
+
 module.exports = {
     entry: './src/app.jsx',
     output: {
-        path: __dirname + "/js",
+        path: dest,
         filename: 'bundle.js'
     },
-    plugins: [definePlugin],
+    plugins: [
+        definePlugin,
+        new HtmlWebpackPlugin({
+            template: 'index.ejs',
+            filename: 'index.html',
+            inject: 'body'
+        }),
+        new CopyWebpackPlugin([
+            { from:'manifest.json' }
+        ])
+    ],
     module: {
         loaders: [
             {

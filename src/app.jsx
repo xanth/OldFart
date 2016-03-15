@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 
 import "../styles/main.scss"
 
-import BirthdayPicker from "./BirthdayPicker.jsx";
+import BirthdayPicker   from './BirthdayPicker.jsx';
+import ChromeStore      from './ChromeStore.es6.js';
 
-ReactDOM.render(
-  <div className="aligner"> <BirthdayPicker /> </div>,
-  document.getElementById('content')
+ChromeStore.GetBirthday((bd) => ReactDOM.render(
+    <div className="aligner"> <BirthdayPicker Birthday={bd} /> </div>,
+    document.getElementById('content'))
 );

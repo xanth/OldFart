@@ -1,0 +1,12 @@
+{
+      "manifest_version": 2,
+      "name": "OldFart",
+      "description": "OldFart is a chrome plugin to remind you exactly how old you are and how little time you have.",
+      "version": "0.0.1",
+      "permissions": [
+          "storage"
+      ],
+      "chrome_url_overrides" : {
+          "newtab": "index.html"
+      }
+}

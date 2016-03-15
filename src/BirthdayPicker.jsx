@@ -7,6 +7,8 @@ import DatePicker from 'react-date-picker';
 import "react-date-picker/base.css";
 import "react-date-picker/theme/hackerone.css";
 
+import ChromeStore from './ChromeStore.es6.js';
+
 import Age from "./Age.jsx";
 
 export default class BirthdayPicker extends React.Component {
@@ -17,7 +19,8 @@ export default class BirthdayPicker extends React.Component {
     }
 
     onDateChange(dateText, moment, event){
-        this.setState({ Birthday: moment.toDate() });
+        const bd = moment.toDate();
+        ChromeStore.SetBirthday(bd, () => this.setState({ Birthday: bd }));
     }
 
     render() {
