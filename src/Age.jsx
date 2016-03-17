@@ -10,7 +10,7 @@ export default class Age extends React.Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.tick.apply(this), 300);
+        this.interval = setInterval(() => this.tick(), 300);
     }
 
     componentWillUnmount() {

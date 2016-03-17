@@ -7,7 +7,7 @@ import DatePicker from 'react-date-picker';
 import "react-date-picker/base.css";
 import "react-date-picker/theme/hackerone.css";
 
-import ChromeStore from './ChromeStore.es6.js';
+const ChromeStore = require(`./${__DEV__ ? 'ChromeStoreShim' : 'ChromeStore'}.es6.js`).default;
 
 import Age from "./Age.jsx";
 
@@ -24,12 +24,8 @@ export default class BirthdayPicker extends React.Component {
     }
 
     render() {
-        if(this.state.Birthday){
-            return <Age Birthday={this.state.Birthday} />;
-        }
-        else {
-            return <DatePicker date={this.Date} onChange={(...args) => this.onDateChange.apply(this, args) } />;
-        }
-
+        return this.state.Birthday
+            ? <Age Birthday={this.state.Birthday} />
+            : <DatePicker date={this.Date} onChange={(...args) => this.onDateChange(...args) } />;
     }
 }

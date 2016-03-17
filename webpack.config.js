@@ -75,5 +75,6 @@ module.exports = {
     },
     node: {
       fs: "empty"
-    }
+    },
+    cache: true
 };
